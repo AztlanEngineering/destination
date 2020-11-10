@@ -1,0 +1,72 @@
+@use "mixins";
+@use "globals" as *;
+
+/*
+@mixin grid-main {
+
+  .#{$grid-prefix} {
+    display: grid;
+    grid-template-columns: repeat($num-columns, 1fr);
+
+    > * {
+      grid-column-end: span $num-columns;
+    }
+  }
+} */
+
+@mixin _columns($mq-prefix:false, $from:false) {
+  @include mixins.media($from:$from) {
+    @for $i from 1 through $grid-default-columns {
+      .#{$mq-prefix}-#{$grid-prefix}#{$i} {
+        grid-column-end: span $i;
+      }
+    }
+  }
+}
+
+@mixin _grid-responsive() {
+  /* --- Responsive  --- */
+
+  // Columns normal (not responsive)
+  @for $i from 1 through $grid-default-columns {
+    .#{$grid-prefix}#{$i} {
+      grid-column-end: span $i;
+    }
+  }
+  //@include columns('xs' );
+  @include _columns("sm", $from:$xs-sm);
+  @include _columns("md", $from:$sm-md);
+  @include _columns("lg", $from:$md-lg);
+}
+
+@mixin grid-gap-code($current, $name) {
+  .#{$grid-gap-prefix}h#{$name} {
+    grid-column-gap: #{$current}rem;
+  }
+
+  .#{$grid-gap-prefix}v#{$name} {
+    grid-row-gap: #{$current}rem;
+  }
+
+  .#{$grid-gap-prefix}#{$name} {
+    grid-gap: #{$current}rem;
+  }
+}
+
+@mixin _grid-gap() {
+  @each $size in $grid-gap-sizes-list {
+    @if $size < 1 {
+      @include grid-gap-code($current:$size, $name:#{$size * 100});
+    } @else {
+      @include grid-gap-code($current:$size, $name:$size);
+    }
+  }
+}
+
+//@include _grid-responsive;
+@include _grid-gap;
+
+
+.#{$grid-prefix}-dense {
+  grid-auto-flow: dense;
+}

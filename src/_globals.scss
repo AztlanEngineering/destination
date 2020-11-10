@@ -1,0 +1,20 @@
+$xs-sm:600px !default;
+$sm-md:900px !default;
+$md-lg:1369px !default;
+$responsiveSizes:(
+  "xs":$xs-sm,
+  "sm":$sm-md,
+  "md":$md-lg,
+) !default;
+$layouts-prefix:"l" !default;
+$consumers-prefix:"i" !default;
+$grid-prefix:"g" !default;
+
+
+//UNSTABLE
+$grid-default-columns:12 !default;
+//$grid-gap-sizes-list:0,.12,.25,.5,1,2,3,4,5,6,8,10 !default;
+
+
+$grid-gap-prefix:"#{$grid-prefix}g" !default;
+$grid-gap-sizes-list:.25,.5,1,2,4 !default;

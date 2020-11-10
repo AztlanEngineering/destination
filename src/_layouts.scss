@@ -1,0 +1,90 @@
+@use "mixins";
+@use "globals" as *;
+
+.#{$layouts-prefix}-center {
+  display: grid;
+  @include mixins.media($to:$sm-md) {
+    grid-template-areas: "aside content aside2";
+    grid-template-columns: 0 100% 0;
+
+    --grid-total-columns: 3;
+  }
+  @include mixins.media($from:$sm-md) {
+    grid-template-areas: "aside content aside2";
+    grid-template-columns: auto var(--content-width, minmax(800px, 1000px)) auto;
+
+    --grid-total-columns: 3;
+  }
+}
+
+.#{$layouts-prefix}-grid {
+  display: grid;
+  grid-gap: var(--grid-gap);
+  @include mixins.media($to:$sm-md) {
+    grid-template-columns: 100%;
+
+    --grid-total-columns: 3;
+  }
+  @include mixins.media($from:$sm-md) {
+    grid-template-columns: repeat(auto-fill, minmax(var(--grid-item-width), 1fr));
+
+    --grid-total-columns: 3;
+  }
+}
+
+.#{$layouts-prefix}-resgrid {
+  display: grid;
+  grid-gap: var(--grid-gap);
+
+  &.dense {
+    grid-auto-flow: dense;
+  }
+
+  @include mixins.media($to:$xs-sm) {
+    grid-template-columns: repeat(var(--grid-columns-xs, 3), 1fr);
+
+    --grid-total-columns: var(--grid-columns-xs, 3);
+  }
+
+  @include mixins.media($from:$xs-sm, $to:$sm-md) {
+    grid-template-columns: repeat(var(--grid-columns-sm, 3), 1fr);
+
+    --grid-total-columns: var(--grid-columns-sm, var(--grid-columns-xs, 3));
+  }
+
+  @include mixins.media($from:$sm-md) {
+    grid-template-columns: repeat(var(--grid-columns-md, 3), 1fr);
+
+    --grid-total-columns: var(--grid-columns-md, 4);
+  }
+}
+
+.#{$layouts-prefix}-illustrated {
+  display: grid;
+  grid-auto-flow: dense;
+
+  @include mixins.media($to:$sm-md) {
+    grid-template-areas:
+      "content"
+      "illustration";
+
+    --grid-total-columns: 3;
+  }
+
+  @include mixins.media($from:$sm-md) {
+    grid-template-areas: "aside content illustration aside2";
+    grid-template-columns: 1fr var(--content-width, minmax(500px, 600px)) var(--content-width, minmax(300px, 500px)) 1fr;
+
+    &.right {
+      grid-template-areas: "aside illustration content aside2";
+      grid-template-columns: 1fr var(--content-width, minmax(300px, 500px)) var(--conten-width, minmax(500px, 600px)) 1fr;
+    }
+
+    /*
+    .i-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    } */
+  }
+}

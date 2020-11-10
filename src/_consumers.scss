@@ -1,0 +1,31 @@
+@use "globals" as *;
+
+.#{$consumers-prefix}-content {
+  grid-area: content;
+}
+
+.#{$consumers-prefix}-header {
+  grid-area: header;
+}
+
+.#{$consumers-prefix}-footer {
+  grid-area: footer;
+}
+
+.#{$consumers-prefix}-extra {
+  grid-area: extra;
+}
+
+.#{$consumers-prefix}-illustration {
+  grid-area: illustration;
+}
+
+/*
+  #{$consumers-prefix}-wide,
+   {
+    grid-column: 1 / span var(--grid-total-columns);
+  } */
+
+.#{$consumers-prefix}-aside {
+  grid-area: aside;
+}
