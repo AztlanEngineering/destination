@@ -2,22 +2,27 @@
 
 .#{$consumers-prefix}-content {
   grid-area: content;
+  grid-column-start: content;
 }
 
 .#{$consumers-prefix}-header {
   grid-area: header;
+  grid-column-start: header;
 }
 
 .#{$consumers-prefix}-footer {
   grid-area: footer;
+  grid-column-start: footer;
 }
 
 .#{$consumers-prefix}-extra {
   grid-area: extra;
+  grid-column-start: extra;
 }
 
 .#{$consumers-prefix}-illustration {
   grid-area: illustration;
+  grid-column-start: illustration;
 }
 
 /*
@@ -28,4 +33,5 @@
 
 .#{$consumers-prefix}-aside {
   grid-area: aside;
+  grid-column-start: aside;
 }

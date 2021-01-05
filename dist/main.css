@@ -88,22 +88,27 @@
 
 .i-content {
   grid-area: content;
+  grid-column-start: content;
 }
 
 .i-header {
   grid-area: header;
+  grid-column-start: header;
 }
 
 .i-footer {
   grid-area: footer;
+  grid-column-start: footer;
 }
 
 .i-extra {
   grid-area: extra;
+  grid-column-start: extra;
 }
 
 .i-illustration {
   grid-area: illustration;
+  grid-column-start: illustration;
 }
 
 /*
@@ -113,6 +118,7 @@
   } */
 .i-aside {
   grid-area: aside;
+  grid-column-start: aside;
 }
 
 /*
