@@ -10,8 +10,8 @@
     --grid-total-columns: 3;
   }
   @include mixins.media($from:$sm-md) {
-    //grid-template-areas: "aside content aside2";
-    grid-template-columns: auto [content] var(--content-width, minmax(800px, 1000px)) auto;
+    grid-template-areas: "aside content aside2";
+    grid-template-columns: auto var(--content-width, minmax(800px, 1000px)) auto;
 
     --grid-total-columns: 3;
   }
@@ -67,15 +67,17 @@
     grid-template-areas:
       "content"
       "illustration";
+
+    --grid-total-columns: 3;
   }
 
   @include mixins.media($from:$sm-md) {
-    //grid-template-areas: "aside content illustration aside2";
-    grid-template-columns: 1fr [content] var(--content-width, minmax(500px, 600px)) [illustration] var(--content-width, minmax(300px, 500px)) 1fr;
+    grid-template-areas: "aside content illustration aside2";
+    grid-template-columns: 1fr var(--content-width, minmax(500px, 600px)) var(--content-width, minmax(300px, 500px)) 1fr;
 
     &.right {
-      //grid-template-areas: "aside illustration content aside2";
-      grid-template-columns: 1fr [illustration] var(--content-width, minmax(300px, 500px)) [content] var(--conten-width, minmax(500px, 600px)) 1fr;
+      grid-template-areas: "aside illustration content aside2";
+      grid-template-columns: 1fr var(--content-width, minmax(300px, 500px)) var(--conten-width, minmax(500px, 600px)) 1fr;
     }
 
     /*

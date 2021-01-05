@@ -10,7 +10,6 @@
 }
 @media screen and (min-width: 900px) {
   .l-center {
-    grid-template-areas: "aside content aside2";
     grid-template-columns: auto [content] var(--content-width, minmax(800px, 1000px)) auto;
     --grid-total-columns: 3;
   }
