@@ -100,9 +100,8 @@
 
   @include mixins.media($to:$sm-md) {
     grid-template-areas:
-      "content"
-      "illustration"
-      "footer";
+      "header"
+      "content" ;
 
     --grid-total-columns: 3;
   }
