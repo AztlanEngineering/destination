@@ -66,19 +66,51 @@
   @include mixins.media($to:$sm-md) {
     grid-template-areas:
       "content"
-      "illustration";
+      "illustration"
+      "footer";
 
     --grid-total-columns: 3;
   }
 
   @include mixins.media($from:$sm-md) {
-    grid-template-areas: "aside content illustration aside2";
-    grid-template-columns: 1fr var(--content-width, minmax(500px, 600px)) var(--content-width, minmax(300px, 500px)) 1fr;
+    grid-template-areas:
+      "aside content illustration aside2",
+      "aside footer illustration aside2";
+    grid-template-columns: 1fr var(--content-width, minmax(500px, 600px)) var(--illustration-width, minmax(300px, 500px)) 1fr;
 
     &.right {
-      grid-template-areas: "aside illustration content aside2";
-      grid-template-columns: 1fr var(--content-width, minmax(300px, 500px)) var(--conten-width, minmax(500px, 600px)) 1fr;
+      grid-template-areas:
+        "aside illustration content aside2"
+        "aside illustration footer aside2";
+      grid-template-columns: 1fr var(--illustration-width, minmax(300px, 500px)) var(--content-width, minmax(500px, 600px)) 1fr;
     }
+
+    /*
+    .i-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    } */
+  }
+}
+
+.#{$layouts-prefix}-sideheaded {
+  display: grid;
+  grid-auto-flow: dense;
+
+  @include mixins.media($to:$sm-md) {
+    grid-template-areas:
+      "content"
+      "illustration"
+      "footer";
+
+    --grid-total-columns: 3;
+  }
+
+  @include mixins.media($from:$sm-md) {
+    grid-template-areas: "aside header content aside2";
+    grid-template-columns: 1fr var(--header-width, minmax(300px, 450px)) var(--content-width, minmax(400px, 600px)) 1fr;
+
 
     /*
     .i-content {
