@@ -101,7 +101,7 @@
   @include mixins.media($to:$sm-md) {
     grid-template-areas:
       "header"
-      "content" ;
+      "content";
 
     --grid-total-columns: 3;
   }
