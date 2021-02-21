@@ -1,7 +1,7 @@
 {
   "name": "@fwrlines/destination",
   "author": "Adrian V.",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0",
   "description": "",
   "repository": "github:fwrlines/destination",
   "main": "dist/main.min.css",
