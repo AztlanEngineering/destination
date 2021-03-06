@@ -1,18 +1,7 @@
 @use "mixins";
 @use "globals" as *;
 
-/*
-@mixin grid-main {
-
-  .#{$grid-prefix} {
-    display: grid;
-    grid-template-columns: repeat($num-columns, 1fr);
-
-    > * {
-      grid-column-end: span $num-columns;
-    }
-  }
-} */
+/* stylelint-disable scss/at-mixin-pattern -- Internal Mixins */
 
 @mixin _columns($mq-prefix:false, $from:false) {
   @include mixins.media($from:$from) {

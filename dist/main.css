@@ -1,3 +1,4 @@
+/* stylelint-disable scss/media-feature-value-dollar-variable -- We need to have a 1px delta */
 .l-center {
   display: grid;
 }
@@ -92,7 +93,7 @@
 }
 @media screen and (max-width: 899px) {
   .l-sideheaded {
-    grid-template-areas: "content" "illustration" "footer";
+    grid-template-areas: "header" "content";
     --grid-total-columns: 3;
   }
 }
@@ -138,18 +139,7 @@
   grid-area: aside;
 }
 
-/*
-@mixin grid-main {
-
-  .g {
-    display: grid;
-    grid-template-columns: repeat($num-columns, 1fr);
-
-    > * {
-      grid-column-end: span $num-columns;
-    }
-  }
-} */
+/* stylelint-disable scss/at-mixin-pattern -- Internal Mixins */
 .ggh25 {
   grid-column-gap: 0.25rem;
 }
